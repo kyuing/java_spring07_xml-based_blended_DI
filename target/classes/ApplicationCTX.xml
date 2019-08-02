@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+<!-- For java annotation in the beans tag above, we need to add those;
+     xmlns:context="http://www.springframework.org/schema/context"
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd" -->
+ 
+ 
+	<!-- student 1 (ApplicationConfig.java) is injected here-->
+	<context:annotation-config/>
+	<bean class="com.javalec.XML_JAVA_DI.ApplicationConfig"/>
+	
+	<!-- student2 --> 	
+	<bean id="xmlStudent" class="com.javalec.XML_JAVA_DI.Student">
+		
+		<!-- values for the specified constructor -->
+		<constructor-arg value="dab"/>
+		<constructor-arg value="15"/>
+		<constructor-arg>
+			<list>
+				<value>praying</value>
+				<value>meditation</value>
+			</list>
+		</constructor-arg>		
+		
+		<!-- values for setters -->
+		<property name="height" value="294"/>
+		<property name="weight" value="44"/>
+	
+	</bean>
+	
+	
+	
+</beans>
